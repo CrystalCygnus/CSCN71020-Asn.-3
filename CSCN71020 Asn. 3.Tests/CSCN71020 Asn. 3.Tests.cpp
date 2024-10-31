@@ -5,11 +5,6 @@ extern "C" {
 #include "../CSCN71020 Asn. 3/main.h"
 }
 
-// Shortcuts for this because im sleep deprived and lazy
-char* r = new char[4] {'R', 'o', 'c', 'k'};
-char* p = new char[5] {'P', 'a', 'p', 'e', 'r'};
-char* s = new char[8] {'S', 'c', 'i', 's', 's', 'o', 'r', 's'};
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace CSCN71020Asn3Tests
@@ -20,62 +15,62 @@ namespace CSCN71020Asn3Tests
 		
 		TEST_METHOD(acceptInput) // No crash on entering 2 inputs
 		{
-			char* result = runGame(r, p);
+			char* result = runGame("Rock", "Paper");
 		}
 
 		TEST_METHOD(returnOutput) // Return 1 char*
 		{
-			char* result = runGame(r, p);
+			char* result = runGame("Rock", "Paper");
 			Assert::IsNotNull(result);
 		}
 
 		// P1 wins
 		TEST_METHOD(rockWins)
 		{
-			char* result = runGame(r, s);
+			char* result = runGame("Rock", "Scissors");
 			Assert::AreEqual("Player1", result);
 		}
 
 		TEST_METHOD(paperWins)
 		{
-			char* result = runGame(p, r);
+			char* result = runGame("Paper", "Rock");
 			Assert::AreEqual("Player1", result);
 		}
 
 		TEST_METHOD(scissorsWins)
 		{
-			char* result = runGame(s, p);
+			char* result = runGame("Scissors", "Paper");
 			Assert::AreEqual("Player1", result);
 		}
 
 		// P2 wins
 		TEST_METHOD(rockWinsP2)
 		{
-			char* result = runGame(s, r);
+			char* result = runGame("Scissors", "Rock");
 			Assert::AreEqual("Player2", result);
 		}
 
 		TEST_METHOD(paperWinsP2)
 		{
-			char* result = runGame(r, p);
+			char* result = runGame("Rock", "Paper");
 			Assert::AreEqual("Player2", result);
 		}
 
 		TEST_METHOD(scissorsWinsP2)
 		{
-			char* result = runGame(r, s);
+			char* result = runGame("Paper", "Scissors");
 			Assert::AreEqual("Player2", result);
 		}
 
 		TEST_METHOD(draw)
 		{
-			char* result = runGame(r, r);
+			char* result = runGame("Rock", "Rock");
 			Assert::AreEqual("Draw", result);
 		}
 
 		TEST_METHOD(invalidInput) // Detects an input that isnt rock/paper/scissors
 		{
-			char* result = runGame("swag", r);
+			char* result = runGame("swag", "Rock");
 			Assert::AreEqual("Invalid input", result);
 		}
 
