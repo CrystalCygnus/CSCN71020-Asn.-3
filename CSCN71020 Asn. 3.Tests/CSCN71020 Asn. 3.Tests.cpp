@@ -4,6 +4,7 @@ extern "C" {
 #include "../CSCN71020 Asn. 3/main.h"
 }
 
+// Shortcuts for this because im sleep deprived and lazy
 char* r = new char[4] {'R', 'o', 'c', 'k'};
 char* p = new char[5] {'P', 'a', 'p', 'e', 'r'};
 char* s = new char[8] {'S', 'c', 'i', 's', 's', 'o', 'r', 's'};
@@ -23,7 +24,8 @@ namespace CSCN71020Asn3Tests
 
 		TEST_METHOD(returnOutput) // Return 1 char*
 		{
-			// Ok so this is actually done above, that won't succeed if it returned multiple char arrays
+			char* result = runGame(r, p);
+			Assert::IsNotNull(result);
 		}
 
 		// P1 wins
