@@ -1,3 +1,4 @@
+//TODO: apparently result is an invalid input, idk why its like 2am lole
 #include "CppUnitTest.h"
 
 extern "C" {
@@ -32,50 +33,50 @@ namespace CSCN71020Asn3Tests
 		TEST_METHOD(rockWins)
 		{
 			char* result = runGame(r, s);
-			Assert::AreEqual(result, "Player1");
+			Assert::AreEqual("Player1", result);
 		}
 
 		TEST_METHOD(paperWins)
 		{
 			char* result = runGame(p, r);
-			Assert::AreEqual(result, "Player1");
+			Assert::AreEqual("Player1", result);
 		}
 
 		TEST_METHOD(scissorsWins)
 		{
 			char* result = runGame(s, p);
-			Assert::AreEqual(result, "Player1");
+			Assert::AreEqual("Player1", result);
 		}
 
 		// P2 wins
 		TEST_METHOD(rockWinsP2)
 		{
 			char* result = runGame(s, r);
-			Assert::AreEqual(result, "Player2");
+			Assert::AreEqual("Player2", result);
 		}
 
 		TEST_METHOD(paperWinsP2)
 		{
 			char* result = runGame(r, p);
-			Assert::AreEqual(result, "Player2");
+			Assert::AreEqual("Player2", result);
 		}
 
 		TEST_METHOD(scissorsWinsP2)
 		{
 			char* result = runGame(r, s);
-			Assert::AreEqual(result, "Player2");
+			Assert::AreEqual("Player2", result);
 		}
 
 		TEST_METHOD(draw)
 		{
 			char* result = runGame(r, r);
-			Assert::AreEqual(result, "Draw");
+			Assert::AreEqual("Draw", result);
 		}
 
 		TEST_METHOD(invalidInput) // Detects an input that isnt rock/paper/scissors
 		{
 			char* result = runGame("swag", r);
-			Assert::AreEqual(result, "Invalid");
+			Assert::AreEqual("Invalid input", result);
 		}
 
 	};
